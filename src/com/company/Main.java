@@ -10,17 +10,65 @@ public class Main {
     public static void main(String[] args) {
 
 	Scanner input = new Scanner(System.in);
-	double result = 0;
 	double calulation = 0;
 	double firstNum = 0;
 	double secondNum = 0;
+	boolean	repeat = false;
 	String lineBreak = "\n";
-	String prompt = "What calculation would you like to preform?: " + lineBreak + "1 - Addition" + lineBreak + "2 - Subtraction" + "3 - Multiplication" + lineBreak + "4 - Division" + lineBreak + "5 - Square Root" + lineBreak + "Please select a number";
+	String prompt = "What calculation would you like to preform?: " + lineBreak + "1 - Addition" + lineBreak + "2 - Subtraction" + lineBreak + "3 - Multiplication" + lineBreak + "4 - Division" + lineBreak + "5 - Square Root" + lineBreak + "Please select a number";
+	String usrInput1 = "Please proved a number";
+	String usrInput2 = "Please provide another number";
+	String repeatPrompt = "Would you like to preform another calculation?";
 
-	System.out.println(prompt);
+	do {
+		System.out.println(prompt);
+		calulation = input.nextDouble();
 
-	calulation = input.nextDouble();
+		if (calulation == 1){
+			System.out.println("Addition Selected");
+			System.out.println(usrInput1);
+			firstNum = input.nextDouble();
 
-	System.out.println(calulation);
+			System.out.println(usrInput2);
+			secondNum = input.nextDouble();
+
+			double addition = firstNum + secondNum;
+
+			System.out.println(firstNum + " + " + secondNum + " = " + addition);
+		}else if (calulation == 2){
+			System.out.println("Subraction Selected");
+			System.out.println(usrInput1);
+			firstNum = input.nextDouble();
+
+			System.out.println(usrInput2);
+			secondNum = input.nextDouble();
+
+		}else if (calulation == 3){
+			System.out.println("Multiplication Selected");
+			System.out.println(usrInput1);
+			firstNum = input.nextDouble();
+
+			System.out.println(usrInput2);
+			secondNum = input.nextDouble();
+
+		}else if (calulation == 4){
+			System.out.println("Division Selected");
+			System.out.println(usrInput1);
+			firstNum = input.nextDouble();
+
+			System.out.println(usrInput2);
+			secondNum = input.nextDouble();
+
+		}else if (calulation == 5){
+			System.out.println("Square Root Selected");
+			System.out.println(usrInput1);
+			firstNum = input.nextDouble();
+			
+
+		}else {
+			System.out.println("Error - Incorrect input");
+		}
+
+	}while(repeat);
     }
 }

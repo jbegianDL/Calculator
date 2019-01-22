@@ -16,21 +16,23 @@ public class Main {
 	String usrInput2 = "Please provide another number";
 	String repeatPrompt = "Would you like to preform another calculation?" + lineBreak + "1 - Yes" + lineBreak + "2 - No";
 
+	//loops while repeat boolean is true
 	do {
 		System.out.println(prompt);
 		calculation = input.nextDouble();
 
 		if (calculation == 1){
 			System.out.println("Addition Selected");
-			System.out.println(usrInput1);
-			firstNum = input.nextDouble();
+			System.out.println(usrInput1);//prompts user for number
+			firstNum = input.nextDouble();//scans number
 
-			System.out.println(usrInput2);
-			secondNum = input.nextDouble();
+			System.out.println(usrInput2);//prompts user for number
+			secondNum = input.nextDouble();//scans number
 
-			double addition = firstNum + secondNum;
+			double addition = firstNum + secondNum;//preforms calculation
 
-			System.out.println(firstNum + " + " + secondNum + " = " + addition);
+			System.out.println(firstNum + " + " + secondNum + " = " + addition);//prints result
+
 		}else if (calculation == 2){
 			System.out.println("Subtraction Selected");
 			System.out.println(usrInput1);
@@ -79,19 +81,19 @@ public class Main {
 
 
 		}else {
-			System.out.println("Error - Incorrect input");
+			System.out.println("Error - Incorrect input"); //any number > 5
 		}
 
-		System.out.println(repeatPrompt);
-		int repeatAnswer = input.nextInt();
+		System.out.println(repeatPrompt);//prompts for another calculation
+		int repeatAnswer = input.nextInt();//scans user input
 
 		if (repeatAnswer == 1){
-			repeat = true;
+			repeat = true; //sets repeat to true and loop continues
 		} else if (repeatAnswer == 2) {
-			repeat = false;
+			repeat = false; //sets repeat to false and loop ends
 		} else {
 			System.out.println("Error - Incorrect input");
-			repeat = false;
+			repeat = false; //sets repeat to false and loop ends
 		}
 
 	}while(repeat);

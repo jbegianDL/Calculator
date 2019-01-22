@@ -1,7 +1,3 @@
-//Create a calculator application. Your program should ask the user which operation they would like to perform: addition, subtraction, multiplication, division, or square root. Depending on the user’s response, your program should request that the user input either (1) or (2) numbers to perform the desired operation.
-//
-//Your program should perform the appropriate calculation, display the result to the user, and ask if the user would like to perform another calculation. If so, the program should restart.
-
 package com.company;
 import java.util.Scanner;
 
@@ -10,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
 	Scanner input = new Scanner(System.in);
-	double calulation = 0;
+	double calculation = 0;
 	double firstNum = 0;
 	double secondNum = 0;
 	boolean	repeat = false;
@@ -18,13 +14,13 @@ public class Main {
 	String prompt = "What calculation would you like to preform?: " + lineBreak + "1 - Addition" + lineBreak + "2 - Subtraction" + lineBreak + "3 - Multiplication" + lineBreak + "4 - Division" + lineBreak + "5 - Square Root" + lineBreak + "Please select a number";
 	String usrInput1 = "Please proved a number";
 	String usrInput2 = "Please provide another number";
-	String repeatPrompt = "Would you like to preform another calculation?";
+	String repeatPrompt = "Would you like to preform another calculation?" + lineBreak + "1 - Yes" + lineBreak + "2 - No";
 
 	do {
 		System.out.println(prompt);
-		calulation = input.nextDouble();
+		calculation = input.nextDouble();
 
-		if (calulation == 1){
+		if (calculation == 1){
 			System.out.println("Addition Selected");
 			System.out.println(usrInput1);
 			firstNum = input.nextDouble();
@@ -35,15 +31,19 @@ public class Main {
 			double addition = firstNum + secondNum;
 
 			System.out.println(firstNum + " + " + secondNum + " = " + addition);
-		}else if (calulation == 2){
-			System.out.println("Subraction Selected");
+		}else if (calculation == 2){
+			System.out.println("Subtraction Selected");
 			System.out.println(usrInput1);
 			firstNum = input.nextDouble();
 
 			System.out.println(usrInput2);
 			secondNum = input.nextDouble();
 
-		}else if (calulation == 3){
+			double subtraction = firstNum - secondNum;
+
+			System.out.println(firstNum + " + " + secondNum + " = " + subtraction);
+
+		}else if (calculation == 3){
 			System.out.println("Multiplication Selected");
 			System.out.println(usrInput1);
 			firstNum = input.nextDouble();
@@ -51,7 +51,11 @@ public class Main {
 			System.out.println(usrInput2);
 			secondNum = input.nextDouble();
 
-		}else if (calulation == 4){
+			double multiplication = firstNum * secondNum;
+
+			System.out.println(firstNum + " * " + secondNum + " = " + multiplication);
+
+		}else if (calculation == 4){
 			System.out.println("Division Selected");
 			System.out.println(usrInput1);
 			firstNum = input.nextDouble();
@@ -59,14 +63,35 @@ public class Main {
 			System.out.println(usrInput2);
 			secondNum = input.nextDouble();
 
-		}else if (calulation == 5){
+			double division = firstNum / secondNum;
+			double remainder = firstNum % secondNum;
+
+			System.out.println(firstNum + " / " + secondNum + " = " + division + " with remainder: " + remainder);
+
+		}else if (calculation == 5){
 			System.out.println("Square Root Selected");
 			System.out.println(usrInput1);
 			firstNum = input.nextDouble();
-			
+
+			double squareRoot = Math.sqrt(firstNum);
+
+			System.out.println("The square root of: " + firstNum + " is " + squareRoot);
+
 
 		}else {
 			System.out.println("Error - Incorrect input");
+		}
+
+		System.out.println(repeatPrompt);
+		int repeatAnswer = input.nextInt();
+
+		if (repeatAnswer == 1){
+			repeat = true;
+		} else if (repeatAnswer == 2) {
+			repeat = false;
+		} else {
+			System.out.println("Error - Incorrect input");
+			repeat = false;
 		}
 
 	}while(repeat);
